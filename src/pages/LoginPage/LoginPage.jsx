@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import NavBar from '../../components/NavBar/NavBar';
 import userService from "../../utils/userService";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -43,6 +44,7 @@ export default function LoginPage(props) {
   }
   return (
     <>
+    <NavBar />
     <Grid
       textAlign="center"
      

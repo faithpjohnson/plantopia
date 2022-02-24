@@ -3,6 +3,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Button, Form, Grid, Header, Image, Segment } from "semantic-ui-react";
 import userService from "../../utils/userService";
 import { useNavigate } from "react-router-dom";
+import NavBar from '../../components/NavBar/NavBar';
 
 export default function SignUpPage(props) {
   
@@ -63,9 +64,12 @@ export default function SignUpPage(props) {
 
   return (
     <>
-      <h1>Signup PAGE</h1>
+      
+      <NavBar />
       <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+      
       <Grid.Column style={{ maxWidth: 450 }}>
+        
         <Header as="h2" textAlign="center">
           <Image src="https://i.imgur.com/IuzBP9Q.png" /> Sign Up
         </Header>
@@ -118,13 +122,6 @@ export default function SignUpPage(props) {
         </Form>
       </Grid.Column>
     </Grid>
-      <ul>
-        <li>Read the Login Model, You can change it to fit your needs</li>
-        <li>
-          Make sure you read the Login Controller, to know how it is setup to
-          find the user!
-        </li>
-      </ul>
     </>
   );
 }

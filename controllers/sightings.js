@@ -27,6 +27,10 @@ function create(req, res) {
       let sighting = await Sighting.create({
         title: req.body.title,
         user: req.user,
+        date: req.body.date,
+        country: req.body.country,
+        state: req.body.state,
+        city: req.body.city,
         photoUrl: data.Location,
       });
 
@@ -46,7 +50,7 @@ async function index(req, res) {
   try {
     //this populates the user when you find the sightings
     const sightings = await Sighting.find({}).populate("user").exec();
-    res.status(200).json({ posts: posts });
+    res.status(200).json({ sightings: sightings });
   } catch (err) {
     res.status(400).json({ err });
   }

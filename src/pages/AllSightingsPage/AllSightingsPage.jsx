@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header, Card } from 'semantic-ui-react'
 import SightingFeed from '../../components/SightingFeed/SightingFeed'
 import SightingCard from '../../components/SightingCard/SightingCard'
 import AddSighting from '../../components/AddSighting/AddSighting'
@@ -27,11 +27,12 @@ export default function AllSightings (props) {
     <>
       <NavBar />
       {/* <AddSighting handleAddSighting={handleAddSighting}/> */}
-      <h1>All Sightings</h1>
-      <Grid centered>
+      <Header>All Sightings</Header>
+      {/* <h1>All Sightings</h1> */}
+      <Grid>
         <Grid.Row>
           <Grid.Column>
-            <SightingFeed sightings={sightings} />
+              <SightingFeed sightings={sightings} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

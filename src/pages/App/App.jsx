@@ -7,6 +7,7 @@ import userService from '../../utils/userService'
 import NavBar from '../../components/NavBar/NavBar'
 import AllSightings from '../AllSightingsPage/AllSightingsPage'
 import AddSightingPage from '../AddSightingPage/AddSightingPage'
+import SightingDetails from '../SightingDetails/SightingDetails'
 
 function App () {
   const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
@@ -28,6 +29,7 @@ function App () {
         <Route path='/' element={<NavBar />} />
         <Route path='/sightings' element={<AllSightings />} />
         <Route path='/add-sighting' element={<AddSightingPage />} />
+        <Route path='/sighting/:sightingid' element={<SightingDetails />} />
         <Route
           path='/login'
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
@@ -37,12 +39,12 @@ function App () {
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
       </Routes>
+
     )
   }
 
   return (
     <Routes>
-      <NavBar />
       <Route
         path='/login'
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

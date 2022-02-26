@@ -30,3 +30,15 @@ export function getAll() {
 		throw new Error('Problem Fetching Gel All')
 	})	
   }
+
+export function getByID(sightingID) {
+	return fetch(BASE_URL+`/${sightingID}`, {
+	  headers: {
+		'Authorization': 'Bearer ' + tokenService.getToken()
+	  }
+	})
+	.then(res => {
+		if(res.ok) return res.json()
+		throw new Error('Problem Fetching By ID', sightingID)
+	})	
+  }

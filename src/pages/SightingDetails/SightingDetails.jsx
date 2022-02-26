@@ -6,7 +6,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Comments from '../../components/Comments/Comments';
 import { Segment, Grid, Image, GridColumn } from 'semantic-ui-react'
 
-export default function SightingDetails () {
+export default function SightingDetails ({ user }) {
   const [sighting, setSighting] = useState({})
   const { sightingid } = useParams()
 
@@ -27,7 +27,7 @@ export default function SightingDetails () {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user}/>
       <Grid>
         <Grid.Column width={5}>
           <Image src={sighting.photoUrl} />

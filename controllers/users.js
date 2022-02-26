@@ -1,8 +1,10 @@
 const User = require('../models/user');
+const Sighting = require('../models/sighting');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require('uuid');
 const S3 = require('aws-sdk/clients/s3');
+const sighting = require('../models/sighting');
 const s3 = new S3(); // initialize the construcotr
 // now s3 can crud on our s3 buckets
 
@@ -11,8 +13,33 @@ const BUCKET = process.env.BUCKET;
 
 module.exports = {
   signup,
-  login
+  login, 
+  profile,
 };
+
+async function profile(req, res){
+  try {
+    // find the user using the params from req
+    // findOne- finds first match
+    const user = await User.findOne({username: req.params.username})
+
+    // find all sightings that belong to that user
+    if(!user) return res.status(404).json({err: 'USER NOT FOUND'})
+
+    // find all users with that userId, the call populate to pull in the whole user object
+    const sightings = await Sighting.find({user:user._id}).populate("user").exec();
+    console.log("SIGHTINGS-->", sightings)
+
+     // send object back to client with all the users sightings, and the user properties
+    res.status(200).json({sightings: sightings, user: user})
+  } catch (err) {
+    console.log(err)
+    res.status(400).json({err})
+  }
+}
+
+
+
 
 function signup(req, res) {
   console.log(req.body, req.file)

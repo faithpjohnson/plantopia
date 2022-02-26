@@ -4,7 +4,7 @@ import AddSighting from '../../components/AddSighting/AddSighting'
 import { useNavigate } from 'react-router-dom'
 import * as postsAPI from '../../utils/sightingApi'
 
-export default function AddSightingPage (props) {
+export default function AddSightingPage ({ user }) {
   const navigate = useNavigate()
 
   async function handleAddSighting (sighting) {
@@ -18,7 +18,7 @@ export default function AddSightingPage (props) {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user}/>
       <AddSighting handleAddSighting={handleAddSighting} />
     </>
   )

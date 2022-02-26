@@ -7,7 +7,7 @@ import SightingCard from '../../components/SightingCard/SightingCard'
 import AddSighting from '../../components/AddSighting/AddSighting'
 import * as sightingsAPI from '../../utils/sightingApi'
 
-export default function AllSightings (props) {
+export default function AllSightings ({ user }) {
   const [sightings, setSightings] = useState([])
 
   async function getSightings () {
@@ -25,7 +25,7 @@ export default function AllSightings (props) {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={user}/>
       {/* <AddSighting handleAddSighting={handleAddSighting}/> */}
       <Header>All Sightings</Header>
       {/* <h1>All Sightings</h1> */}

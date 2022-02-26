@@ -48,9 +48,25 @@ function login(creds) {
 }
 
 
+// what info is going to be unique on each request? USERNAME
+function getProfile(username) {
+  // /api/users + username
+  return fetch(BASE_URL + username, {
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+  }).then(res => {
+    if(res.ok) return res.json()
+    throw new Error('User not found!')
+  })
+}
+
+
+
 export default {
   signup, 
   logout,
   login,
-  getUser
+  getUser, 
+  getProfile,
 };

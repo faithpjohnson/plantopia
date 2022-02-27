@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const postsCtrl = require("../../controllers/sightings");
+const commentCtrl = require('../../controllers/comments')
 const multer = require("multer");
 const upload = multer(); // <- handles multipart/formdata requests(photos)
 // /*---------- Public Routes ----------*/

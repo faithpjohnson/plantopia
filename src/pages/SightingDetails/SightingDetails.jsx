@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import allSightingsPage from '../AllSightingsPage/AllSightingsPage'
 import * as sightingsAPI from '../../utils/sightingApi'
+import * as commentAPI from '../../utils/commentApi'
 import NavBar from '../../components/NavBar/NavBar'
-import Comments from '../../components/Comments/Comments';
+import CommentSection from '../../components/CommentSection/CommentSection'
 import { Segment, Grid, Image, GridColumn } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom'
+import CommentForm from '../../components/CommentForm/CommentForm'
+
 
 export default function SightingDetails ({ user }) {
   const [sighting, setSighting] = useState({})
   const { sightingid } = useParams()
+  const navigate = useNavigate()
 
-  // const thisSighting = allSightingsPage.find(sighting => sighting._id === sightingId)
 
   async function getSighting () {
     try {
@@ -25,9 +29,18 @@ export default function SightingDetails ({ user }) {
     getSighting()
   }, [])
 
+  async function handleCommentForm (commentData) {
+    try {
+      await commentAPI.create(commentData)
+      getSighting()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <>
-      <NavBar user={user}/>
+      <NavBar user={user} />
       <Grid>
         <Grid.Column width={5}>
           <Image src={sighting.photoUrl} />
@@ -40,10 +53,9 @@ export default function SightingDetails ({ user }) {
             <p>{sighting.state}</p>
             <p>{sighting.city}</p>
           </Segment>
-          <Comments />
+          <CommentSection handleCommentForm={handleCommentForm} sightingid={sightingid} comments={sighting.comments}/>
         </Grid.Column>
       </Grid>
-     
     </>
   )
 }

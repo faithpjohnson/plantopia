@@ -3,6 +3,9 @@ import tokenService from "./tokenService"
 const BASE_URL = '/api/sightings/'
 
 export function create(postInfoFromTheForm){
+	for (var key of postInfoFromTheForm.entries()) {
+		console.log(key[0] + ', ' + key[1]);
+	  }
 	// Make a post request to the server
 	return fetch(BASE_URL, {
 		method: 'POST',
@@ -32,7 +35,7 @@ export function getAll() {
   }
 
 export function getByID(sightingID) {
-	return fetch(BASE_URL+`/${sightingID}`, {
+	return fetch(`${BASE_URL}${sightingID}`, {
 	  headers: {
 		'Authorization': 'Bearer ' + tokenService.getToken()
 	  }

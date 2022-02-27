@@ -50,7 +50,7 @@ function create(req, res) {
 async function index(req, res) {
   try {
     //this populates the user when you find the sightings
-    const sightings = await Sighting.find({}).populate("user").exec();
+    const sightings = await Sighting.find({}).populate("user").populate("comments").exec();
     res.status(200).json({ sightings: sightings });
   } catch (err) {
     res.status(400).json({ err });
@@ -60,9 +60,13 @@ async function index(req, res) {
 async function getByID(req, res) {
   try {
     //this populates the user when you find the sightings
-    const sightings = await Sighting.find({_id: req.params.sightingID}).populate("user").exec();
+    const sightings = await Sighting.find({_id: req.params.sightingID})
+      .populate("user")
+      .populate("comments.user")
+      .exec();
     res.status(200).json(sightings[0]);
   } catch (err) {
+    console.log(err)
     res.status(400).json({ err });
   }
 }

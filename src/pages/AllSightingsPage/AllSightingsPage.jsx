@@ -25,14 +25,12 @@ export default function AllSightings ({ user }) {
 
   return (
     <>
-      <NavBar user={user}/>
-      {/* <AddSighting handleAddSighting={handleAddSighting}/> */}
-      <Header>All Sightings</Header>
-      {/* <h1>All Sightings</h1> */}
+      <NavBar user={user} />
+      <Header size='huge'>All Sightings</Header>
       <Grid>
         <Grid.Row>
           <Grid.Column>
-              <SightingFeed sightings={sightings} />
+            <SightingFeed sightings={sightings} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

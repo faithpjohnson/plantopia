@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Card, Icon, Image, Grid, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-function SightingCard ({ sighting, key }) {
+function SightingCard ({ sighting, key}) {
   useEffect(() => {
     console.log(sighting)
   })

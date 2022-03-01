@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Menu, Header, Segment } from 'semantic-ui-react'
+import { Menu, Header, Segment, Image } from 'semantic-ui-react'
 
 export default function NavBar ({ user }) {
   const [state, setState] = useState({ activeItem: '' })
@@ -15,7 +15,10 @@ export default function NavBar ({ user }) {
   return (
     <Menu>
       <Menu.Item name='sightings' path='/sightings' onClick={handleItemClick}>
-        <Header as='h2'>Plantopia</Header>
+        <Header size='huge'>
+          <Image
+          src={"https://i.imgur.com/ZeooAyL.png"}></Image>
+        </Header>
       </Menu.Item>
 
       <Menu.Item
@@ -56,14 +59,14 @@ export default function NavBar ({ user }) {
 
       )}
 
-        <Menu.Item
+        {/* <Menu.Item
           name='profile'
           path={`/user/${user.username}`}
           active={state.activeItem === 'profile'}
           onClick={handleItemClick}
         >
           Username: "{user.username}"
-        </Menu.Item>
+        </Menu.Item> */}
     </Menu>
   )
 }

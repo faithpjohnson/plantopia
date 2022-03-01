@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Image, Segment, Header } from 'semantic-ui-react'
 import NavBar from '../../components/NavBar/NavBar'
-import Profile from '../../components/Profile/Profile'
+
 import SightingFeed from '../../components/SightingFeed/SightingFeed'
 import userService from '../../utils/userService'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
@@ -16,7 +16,6 @@ export default function MySightings () {
   // param from the browser /:username
   const { username } = useParams()
   console.log('this username--->', username)
-
 
   useEffect(() => {
     async function getProfile () {
@@ -39,10 +38,23 @@ export default function MySightings () {
     <>
       <NavBar user={user} />
       <Grid>
-        <h1>My Sightings</h1>
+        <Header floated='center' size='huge'>My Sightings</Header>
+        <Header floated='center' size='huge'>
+          <Image
+            src={`${
+              user?.photoUrl
+                ? user.photoUrl
+                : 'https://react.semantic-ui.com/images/wireframe/square-image.png'
+            } `}
+            avatar
+            size='small'
+          /> {username}
+        </Header>
+
         <Grid.Row>
+          
           <Grid.Column>
-            <Profile />
+            
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>

@@ -41,7 +41,7 @@ export default function AddSightingForm (props) {
     <>
       <Grid textAlign='center' verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2'> Add a Sighting</Header>
+        <Header size='huge'> Add a Sighting</Header>
           <Segment>
             <Form autoComplete='off' onSubmit={handleSubmit}>
               <Form.Input

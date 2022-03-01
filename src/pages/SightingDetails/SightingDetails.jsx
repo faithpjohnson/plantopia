@@ -12,7 +12,7 @@ import CommentForm from '../../components/CommentForm/CommentForm'
 export default function SightingDetails ({ user }) {
   const [sighting, setSighting] = useState({})
   const { sightingid } = useParams()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   async function getSighting () {
     try {
@@ -41,12 +41,17 @@ export default function SightingDetails ({ user }) {
       <NavBar user={user} />
       <Grid>
         <Grid.Column width={5}>
-          <Image src={sighting.photoUrl} />
+          <Segment>
+            <Image src={sighting.photoUrl} />
+          </Segment>
         </Grid.Column>
         <Grid.Column width={10}>
           <Segment>
+
             <Link to={`/sighting/${sighting._id}/edit`}>
-              <Button type='submit' floated='right'>Edit</Button>
+              <Button type='submit' floated='right'>
+                Edit
+              </Button>
             </Link>
             <h1>{sighting.title}</h1>
             <p>{sighting.date}</p>

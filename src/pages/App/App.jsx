@@ -9,6 +9,7 @@ import AllSightings from '../AllSightingsPage/AllSightingsPage'
 import AddSightingPage from '../AddSightingPage/AddSightingPage'
 import SightingDetails from '../SightingDetails/SightingDetails'
 import MySightings from '../MySightings/MySightings'
+import UpdateSighting from '../UpdateSighting/UpdateSighting'
 
 function App () {
   const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
@@ -32,6 +33,7 @@ function App () {
         <Route path='/add-sighting' element={<AddSightingPage user={user}/>} />
         <Route path='/user/:username' element={<MySightings user={user}/>} />
         <Route path='/sighting/:sightingid' element={<SightingDetails user={user}/>} />
+        <Route path='/sighting/:sightingid/edit' element={<UpdateSighting user={user}/>} />
         <Route
           path='/login'
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

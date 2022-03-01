@@ -11,18 +11,18 @@ export default function AddSightingForm (props) {
     city: ''
   })
 
-  function handleFileInput (e) {
+  function handleFileInput(e) {
     setSelectedFile(e.target.files[0])
   }
 
-  function handleChange (e) {
+  function handleChange(e) {
     setState({
       ...state,
       [e.target.name]: e.target.value
     })
   }
 
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault()
 
     const formData = new FormData()
@@ -34,7 +34,7 @@ export default function AddSightingForm (props) {
     formData.append('city', state.city)
     props.handleAddSighting(formData);
 
-    // Have to submit the form now! We need a function!
+  
   }
 
   return (

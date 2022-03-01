@@ -53,7 +53,17 @@ export default function NavBar ({ user }) {
         >
           Login
         </Menu.Item>
+
       )}
+
+        <Menu.Item
+          name='profile'
+          path={`/user/${user.username}`}
+          active={state.activeItem === 'profile'}
+          onClick={handleItemClick}
+        >
+          Username: "{user.username}"
+        </Menu.Item>
     </Menu>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import AddSighting from '../../components/AddSighting/AddSighting'
+import AddSightingForm from '../../components/AddSightingForm/AddSightingForm'
 import { useNavigate } from 'react-router-dom'
 import * as sightingAPI from '../../utils/sightingApi'
 
@@ -19,7 +19,7 @@ export default function AddSightingPage ({ user }) {
   return (
     <>
       <NavBar user={user}/>
-      <AddSighting handleAddSighting={handleAddSighting} />
+      <AddSightingForm handleAddSighting={handleAddSighting} />
     </>
   )
 }

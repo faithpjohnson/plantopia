@@ -4,7 +4,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import { Grid, Header, Card } from 'semantic-ui-react'
 import SightingFeed from '../../components/SightingFeed/SightingFeed'
 import SightingCard from '../../components/SightingCard/SightingCard'
-import AddSighting from '../../components/AddSighting/AddSighting'
+import AddSighting from '../../components/AddSightingForm/AddSightingForm'
 import * as sightingsAPI from '../../utils/sightingApi'
 
 export default function AllSightings ({ user }) {

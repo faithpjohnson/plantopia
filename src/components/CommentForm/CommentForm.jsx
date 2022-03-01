@@ -28,7 +28,6 @@ export default function CommentForm ({ sightingid, handleCommentForm }) {
     }
 
 
-
   return (
     <Comment.Group>
       <Header as='h3' dividing>

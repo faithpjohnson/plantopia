@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Grid, Image, Segment, Header } from 'semantic-ui-react'
+import { Grid, Image, Header } from 'semantic-ui-react'
 import NavBar from '../../components/NavBar/NavBar'
 import SightingFeed from '../../components/SightingFeed/SightingFeed'
 import userService from '../../utils/userService'
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import { useParams } from 'react-router-dom'
-import * as sightingsAPI from '../../utils/sightingApi'
+
 
 export default function MySightings (props) {
   const [sightings, setSightings] = useState([]) // an array of posts
   const [user, setUser] = useState({}) // this needs to be the logged in user object
   const [error, setError] = useState('')
-
-  // param from the browser /:username
   const { username } = useParams()
   console.log('this username--->', username)
 
@@ -29,17 +26,15 @@ export default function MySightings (props) {
         setError("This Profile Doesn't Exist!")
       }
     }
-
     getProfile()
   }, [username])
 
   return (
     <>
-      <NavBar user={user} handleLogout={props.handleLogout}/>
+      <NavBar user={user} handleLogout={props.handleLogout} />
       <Grid>
-        <Header textAlign='center' size='huge'>My Sightings
-
-        {/* <Header size='huge'> */}
+        <Header textAlign='center' size='huge'>
+          My Sightings
           <Image
             src={`${
               user?.photoUrl
@@ -48,15 +43,11 @@ export default function MySightings (props) {
             } `}
             avatar
             size='small'
-          /> {username}
-          </Header>
-        {/* </Header> */}
-
+          />{' '}
+          {username}
+        </Header>
         <Grid.Row>
-          
-          <Grid.Column>
-            
-          </Grid.Column>
+          <Grid.Column></Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
           <Grid.Column style={{ maxWidth: 750 }}>

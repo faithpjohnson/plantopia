@@ -65,21 +65,20 @@ export function updateSighting(formInfo, sightingID) {
 // controller writes data to the res and server returns it
 
 export function deleteSighting(sightingID) {
-  console.log(sightingID)
-  return (
-    fetch(BASE_URL, {
-      method: "DELETE",
-      body: JSON.stringify({
-        "_id": sightingID
-      }), // turns into json string 
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + tokenService.getToken(),
-      },
-    })).then((res) => {
-      if (res.ok) return res.json();
-      throw new Error(
-        "Error submitting the UPDATE Form! Hey Check the Express Terminal"
-      );
-  })
+  console.log(sightingID);
+  return fetch(BASE_URL, {
+    method: "DELETE",
+    body: JSON.stringify({
+      _id: sightingID,
+    }), // turns into json string
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => {
+    if (res.ok) return res.json();
+    throw new Error(
+      "Error submitting the UPDATE Form! Hey Check the Express Terminal"
+    );
+  });
 }

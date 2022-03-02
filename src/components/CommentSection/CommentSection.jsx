@@ -10,6 +10,5 @@ export default function Comments ({ handleCommentForm, sightingid, comments}) {
       <CommentList comments={comments} />
       <CommentForm handleCommentForm={handleCommentForm} sightingid={sightingid}/>
     </Segment>
-
   )
 }

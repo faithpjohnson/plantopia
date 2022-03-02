@@ -28,12 +28,27 @@ function App () {
   if (user) {
     return (
       <Routes>
-        <Route path='/' element={<AllSightings user={user} handleLogout={handleLogout}/>} />
-        <Route path='/sightings' element={<AllSightings user={user} handleLogout={handleLogout}/>} />
-        <Route path='/add-sighting' element={<AddSightingPage user={user}/>} />
-        <Route path='/user/:username' element={<MySightings user={user} handleLogout={handleLogout}/>} />
-        <Route path='/sighting/:sightingid' element={<SightingDetails user={user}/>} />
-        <Route path='/sighting/:sightingid/edit' element={<UpdateSighting user={user}/>} />
+        <Route
+          path='/'
+          element={<AllSightings user={user} handleLogout={handleLogout} />}
+        />
+        <Route
+          path='/sightings'
+          element={<AllSightings user={user} handleLogout={handleLogout} />}
+        />
+        <Route path='/add-sighting' element={<AddSightingPage user={user} />} />
+        <Route
+          path='/user/:username'
+          element={<MySightings user={user} handleLogout={handleLogout} />}
+        />
+        <Route
+          path='/sighting/:sightingid'
+          element={<SightingDetails user={user} />}
+        />
+        <Route
+          path='/sighting/:sightingid/edit'
+          element={<UpdateSighting user={user} />}
+        />
         <Route
           path='/login'
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
@@ -43,7 +58,6 @@ function App () {
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
       </Routes>
-
     )
   }
 

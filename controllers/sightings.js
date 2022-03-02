@@ -36,9 +36,7 @@ function create(req, res) {
         city: req.body.city,
         photoUrl: data.Location,
       });
-
       sighting = await sighting.populate("user");
-
       // respond to the client
       // What file on the client can we log out this response?
       res.status(201).json({ sighting });
@@ -85,14 +83,12 @@ async function updateSighting(req, res) {
       res.status(400).json({ message: "sighting not found" });
       return;
     }
-
     const sighting = sightings[0];
     sighting.title = req.body.title;
     sighting.date = req.body.date;
     sighting.country = req.body.country;
     sighting.state = req.body.state;
     sighting.city = req.body.city;
-
     sighting.save(function (err) {
       res.status(201).json(sighting);
     });
@@ -106,9 +102,9 @@ async function deleteSighting(req, res) {
     const sighting = await Sighting.findOneAndDelete({
       _id: req.body._id,
     });
-    console.log("body", req.body)
+    console.log("body", req.body);
     console.log("SIGHTING TO DELETE", sighting);
-    res.status(201).json( sighting );
+    res.status(201).json(sighting);
   } catch (err) {
     res.status(400).json({ err });
   }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Comment, Header, Button, Form, Group } from 'semantic-ui-react'
-import * as commentAPI from '../../utils/commentApi'
 
 export default function CommentForm ({ sightingid, handleCommentForm }) {
   const [state, setState] = useState({
@@ -12,8 +11,6 @@ export default function CommentForm ({ sightingid, handleCommentForm }) {
       ...state,
       [e.target.name]: e.target.value
     })
-
-    console.log(state)
   }
 
   function handleSubmit (e) {

@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import allSightingsPage from '../AllSightingsPage/AllSightingsPage'
 import * as sightingsAPI from '../../utils/sightingApi'
 import * as commentAPI from '../../utils/commentApi'
 import NavBar from '../../components/NavBar/NavBar'
 import CommentSection from '../../components/CommentSection/CommentSection'
 import { Segment, Grid, Image, GridColumn, Button } from 'semantic-ui-react'
-import { useNavigate } from 'react-router-dom'
-import CommentForm from '../../components/CommentForm/CommentForm'
+
 
 export default function SightingDetails ({ user, handleLogout }) {
   const [sighting, setSighting] = useState({})
   const { sightingid } = useParams()
-  // const navigate = useNavigate()
-
 
   async function getSighting () {
     try {
@@ -23,13 +19,9 @@ export default function SightingDetails ({ user, handleLogout }) {
       console.log(err, ' this is the error')
     }
   }
-
   useEffect(() => {
     getSighting()
   }, [])
-
-  console.log('SIGHTINGGGG DETAILS', sighting.username)
-  console.log('USER DETAILS', user._id)
 
   async function handleCommentForm (commentData) {
     try {
@@ -42,7 +34,7 @@ export default function SightingDetails ({ user, handleLogout }) {
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout}/>
+      <NavBar user={user} handleLogout={handleLogout} />
       <Grid centered>
         <Grid.Column width={5}>
           <Segment>
@@ -55,14 +47,14 @@ export default function SightingDetails ({ user, handleLogout }) {
             <Link to={`/sighting/${sighting._id}/edit`}>
               <Button type='submit' floated='right'>
                 Edit
-              </Button> 
-            </Link> 
+              </Button>
+            </Link>
             {/* : null }  */}
             <h1>{sighting.title}</h1>
-            {/* <Image src={sighting.user.photoUrl} avatar size='mini'/> */}
-            {/* <p>{sighting.user.username}</p> */}
             <p>Date: {sighting.date}</p>
-            <p>Location: {sighting.city}, {sighting.state} </p>
+            <p>
+              Location: {sighting.city}, {sighting.state}{' '}
+            </p>
             <p>{sighting.country}</p>
           </Segment>
           <CommentSection

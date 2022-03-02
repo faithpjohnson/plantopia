@@ -3,7 +3,11 @@ import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import * as sightingsAPI from '../../utils/sightingApi'
 import { useNavigate } from 'react-router-dom'
 
-export default function UpdateSightingForm ({ handleUpdateForm, sightingID, handleDeleteSighting }) {
+export default function UpdateSightingForm ({
+  handleUpdateForm,
+  sightingID,
+  handleDeleteSighting
+}) {
   // define status as an object using useState hook to store details
   const [state, setState] = useState({
     title: '',
@@ -46,7 +50,6 @@ export default function UpdateSightingForm ({ handleUpdateForm, sightingID, hand
   useEffect(() => {
     getSighting()
   }, [])
-
 
   return (
     <>
@@ -100,8 +103,12 @@ export default function UpdateSightingForm ({ handleUpdateForm, sightingID, hand
                 UPDATE SIGHTING
               </Button>
             </Form>
-            <Button type='submit' className='btn' color='red' onClick={handleDelete}
->
+            <Button
+              type='submit'
+              className='btn'
+              color='red'
+              onClick={handleDelete}
+            >
               DELETE
             </Button>
           </Segment>

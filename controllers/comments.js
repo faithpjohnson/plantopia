@@ -6,7 +6,6 @@ module.exports = {
 
 async function create(req, res) {
   console.log(req.body, " <- req.body", req.user);
-
   try {
     const sighting = await Sighting.findById(req.body.sightingid);
     sighting.comments.push({

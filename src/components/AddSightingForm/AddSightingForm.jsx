@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 export default function AddSightingForm (props) {
   const [selectedFile, setSelectedFile] = useState('')
@@ -24,7 +24,6 @@ export default function AddSightingForm (props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-
     const formData = new FormData()
     formData.append('photo', selectedFile)
     formData.append('title', state.title)
@@ -33,8 +32,6 @@ export default function AddSightingForm (props) {
     formData.append('state', state.state)
     formData.append('city', state.city)
     props.handleAddSighting(formData);
-
-  
   }
 
   return (

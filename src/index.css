@@ -28,6 +28,7 @@ code {
 .ui.menu .item {
   font-family: 'Jost', sans-serif;
   font-weight: 600;
+  position: static;
 }
 
 h1 {
@@ -54,4 +55,8 @@ h1 {
 
 .ui.card .meta, .ui.cards>.card .meta {
   color: black;
+}
+
+.logo {
+  font-size: 55px;
 }

@@ -3,7 +3,7 @@ import handleLogout from '../../pages/App/App'
 import { useNavigate } from 'react-router-dom'
 import { Menu, Header, Segment, Image } from 'semantic-ui-react'
 
-export default function NavBar ({ user }) {
+export default function NavBar ({ user, handleLogout }) {
   const [state, setState] = useState({ activeItem: '' })
 
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ export default function NavBar ({ user }) {
     <Menu>
       <Menu.Item name='sightings' path='/sightings' onClick={handleItemClick}>
         <Header size='huge'>
-          <Image src={'https://i.imgur.com/ZeooAyL.png'}></Image>
+          <Image className="logo" src={'https://i.imgur.com/ZeooAyL.png'}></Image>
         </Header>
       </Menu.Item>
 

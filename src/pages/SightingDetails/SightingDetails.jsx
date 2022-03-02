@@ -28,7 +28,8 @@ export default function SightingDetails ({ user, handleLogout }) {
     getSighting()
   }, [])
 
-  console.log('SIGHTINGGGG DETAILS', sighting)
+  console.log('SIGHTINGGGG DETAILS', sighting.username)
+  console.log('USER DETAILS', user._id)
 
   async function handleCommentForm (commentData) {
     try {
@@ -50,12 +51,13 @@ export default function SightingDetails ({ user, handleLogout }) {
         </Grid.Column>
         <Grid.Column width={10}>
           <Segment>
-
+            {/* {(user.username === sighting.user.username) ?  */}
             <Link to={`/sighting/${sighting._id}/edit`}>
               <Button type='submit' floated='right'>
                 Edit
-              </Button>
-            </Link>
+              </Button> 
+            </Link> 
+            {/* : null }  */}
             <h1>{sighting.title}</h1>
             {/* <Image src={sighting.user.photoUrl} avatar size='mini'/> */}
             {/* <p>{sighting.user.username}</p> */}

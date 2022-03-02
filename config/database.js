@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  "mongodb://localhost:27017/project-4",
+  "mongodb+srv://faithpjohnson:Holybasil21!@cluster0.9mrmn.mongodb.net/plantopia?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
 );
 
 const db = mongoose.connection;

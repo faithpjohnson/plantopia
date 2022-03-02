@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const DB_URL = process.env.DATABASE_URL;
 
 mongoose.connect(
-  "mongodb+srv://faithpjohnson:Holybasil21!@cluster0.9mrmn.mongodb.net/plantopia?retryWrites=true&w=majority", {
+  DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }

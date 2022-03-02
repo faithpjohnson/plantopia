@@ -59,10 +59,9 @@ export default function SightingDetails ({ user, handleLogout }) {
             <h1>{sighting.title}</h1>
             {/* <Image src={sighting.user.photoUrl} avatar size='mini'/> */}
             {/* <p>{sighting.user.username}</p> */}
-            <p>{sighting.date}</p>
+            <p>Date: {sighting.date}</p>
+            <p>Location: {sighting.city}, {sighting.state} </p>
             <p>{sighting.country}</p>
-            <p>{sighting.state}</p>
-            <p>{sighting.city}</p>
           </Segment>
           <CommentSection
             handleCommentForm={handleCommentForm}

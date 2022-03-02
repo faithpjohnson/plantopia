@@ -7,7 +7,7 @@ import SightingCard from '../../components/SightingCard/SightingCard'
 import AddSighting from '../../components/AddSightingForm/AddSightingForm'
 import * as sightingsAPI from '../../utils/sightingApi'
 
-export default function AllSightings ({ user }) {
+export default function AllSightings ({ user, handleLogout }) {
   const [sightings, setSightings] = useState([])
 
   async function getSightings () {
@@ -25,7 +25,7 @@ export default function AllSightings ({ user }) {
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} handleLogout={handleLogout}/>
       <Header size='huge'>All Sightings</Header>
       <Grid>
         <Grid.Row>

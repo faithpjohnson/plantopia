@@ -23,9 +23,7 @@ export default function UpdateSighting ({ user }) {
   async function handleDeleteSighting(sightingID) {
     try {
       const deletedSighting = await sightingsAPI.deleteSighting(sightingID)
-     
       console.log("DELETED SIGHTING", deletedSighting)
-
       navigate('/sightings')
     } catch (err) {
       console.log(err, 'Something went wrong')

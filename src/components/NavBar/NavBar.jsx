@@ -13,9 +13,6 @@ export default function NavBar ({ user }) {
     navigate(path)
   }
 
-  
-  
-
   return (
     <Menu>
       <Menu.Item name='sightings' path='/sightings' onClick={handleItemClick}>

@@ -35,7 +35,7 @@ export default function MySightings (props) {
 
   return (
     <>
-      <NavBar user={user}/>
+      <NavBar user={user} handleLogout={props.handleLogout}/>
       <Grid>
         <Header textAlign='center' size='huge'>My Sightings
 

@@ -9,7 +9,7 @@ import { Segment, Grid, Image, GridColumn, Button } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
 import CommentForm from '../../components/CommentForm/CommentForm'
 
-export default function SightingDetails ({ user }) {
+export default function SightingDetails ({ user, handleLogout }) {
   const [sighting, setSighting] = useState({})
   const { sightingid } = useParams()
   // const navigate = useNavigate()
@@ -41,7 +41,7 @@ export default function SightingDetails ({ user }) {
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} handleLogout={handleLogout}/>
       <Grid centered>
         <Grid.Column width={5}>
           <Segment>

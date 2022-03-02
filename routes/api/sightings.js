@@ -10,7 +10,7 @@ router.post("/", isAuthenticated, upload.single("photo"), sightingsCtrl.create);
 router.get("/", sightingsCtrl.index);
 router.get("/:sightingID", sightingsCtrl.getByID);
 router.post('/:sightingID/edit', sightingsCtrl.updateSighting);
-router.delete('/:sightingID/edit', sightingsCtrl.deleteSighting)
+router.delete('/', sightingsCtrl.deleteSighting)
 
 /*---------- Protected Routes ----------*/
 function isAuthenticated(req, res, next) {

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Grid, Image, Segment, Header } from 'semantic-ui-react'
 import NavBar from '../../components/NavBar/NavBar'
-
 import SightingFeed from '../../components/SightingFeed/SightingFeed'
 import userService from '../../utils/userService'
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import { useParams } from 'react-router-dom'
 import * as sightingsAPI from '../../utils/sightingApi'
 
-export default function MySightings () {
+export default function MySightings (props) {
   const [sightings, setSightings] = useState([]) // an array of posts
   const [user, setUser] = useState({}) // this needs to be the logged in user object
   const [error, setError] = useState('')
@@ -36,10 +35,11 @@ export default function MySightings () {
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user}/>
       <Grid>
-        <Header floated='center' size='huge'>My Sightings</Header>
-        <Header floated='center' size='huge'>
+        <Header textAlign='center' size='huge'>My Sightings
+
+        {/* <Header size='huge'> */}
           <Image
             src={`${
               user?.photoUrl
@@ -49,7 +49,8 @@ export default function MySightings () {
             avatar
             size='small'
           /> {username}
-        </Header>
+          </Header>
+        {/* </Header> */}
 
         <Grid.Row>
           

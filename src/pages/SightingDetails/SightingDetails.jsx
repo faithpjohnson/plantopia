@@ -14,6 +14,7 @@ export default function SightingDetails ({ user }) {
   const { sightingid } = useParams()
   // const navigate = useNavigate()
 
+
   async function getSighting () {
     try {
       const data = await sightingsAPI.getByID(sightingid)
@@ -27,6 +28,8 @@ export default function SightingDetails ({ user }) {
     getSighting()
   }, [])
 
+  console.log('SIGHTINGGGG DETAILS', sighting)
+
   async function handleCommentForm (commentData) {
     try {
       await commentAPI.create(commentData)
@@ -39,7 +42,7 @@ export default function SightingDetails ({ user }) {
   return (
     <>
       <NavBar user={user} />
-      <Grid>
+      <Grid centered>
         <Grid.Column width={5}>
           <Segment>
             <Image src={sighting.photoUrl} />
@@ -54,6 +57,8 @@ export default function SightingDetails ({ user }) {
               </Button>
             </Link>
             <h1>{sighting.title}</h1>
+            {/* <Image src={sighting.user.photoUrl} avatar size='mini'/> */}
+            {/* <p>{sighting.user.username}</p> */}
             <p>{sighting.date}</p>
             <p>{sighting.country}</p>
             <p>{sighting.state}</p>

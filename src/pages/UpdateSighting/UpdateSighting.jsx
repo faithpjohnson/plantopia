@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function UpdateSighting ({ user }) {
   // load in sighting
+  const [sighting, setSighting] = useState([])
   const { sightingid } = useParams()
   const navigate = useNavigate()
 
@@ -19,9 +20,12 @@ export default function UpdateSighting ({ user }) {
     }
   }
 
-  async function handleDeleteSighting (sightingData) {
+  async function handleDeleteSighting(sightingID) {
     try {
-      const deletedSighting = await sightingsAPI.deleteSighting(sightingData)
+      const deletedSighting = await sightingsAPI.deleteSighting(sightingID)
+     
+      console.log("DELETED SIGHTING", deletedSighting)
+
       navigate('/sightings')
     } catch (err) {
       console.log(err, 'Something went wrong')

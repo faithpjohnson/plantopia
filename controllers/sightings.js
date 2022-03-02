@@ -1,5 +1,5 @@
 const Sighting = require("../models/sighting");
-const User = require('../models/user');
+const User = require("../models/user");
 const { v4: uuidv4 } = require("uuid");
 const S3 = require("aws-sdk/clients/s3");
 const s3 = new S3(); // initialize the S3 constructor
@@ -11,7 +11,7 @@ module.exports = {
   index,
   getByID,
   updateSighting,
-  deleteSighting
+  deleteSighting,
 };
 
 function create(req, res) {
@@ -52,7 +52,10 @@ function create(req, res) {
 async function index(req, res) {
   try {
     //this populates the user when you find the sightings
-    const sightings = await Sighting.find({}).populate("user").populate("comments").exec();
+    const sightings = await Sighting.find({})
+      .populate("user")
+      .populate("comments")
+      .exec();
     res.status(200).json({ sightings: sightings });
   } catch (err) {
     res.status(400).json({ err });
@@ -62,47 +65,51 @@ async function index(req, res) {
 async function getByID(req, res) {
   try {
     //this populates the user when you find the sightings
-    const sightings = await Sighting.find({_id: req.params.sightingID})
+    const sightings = await Sighting.find({ _id: req.params.sightingID })
       .populate("user")
       .populate("comments.user")
       .exec();
     res.status(200).json(sightings[0]);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400).json({ err });
   }
 }
 
 async function updateSighting(req, res) {
-  console.log("updateSighting")
+  console.log("updateSighting");
   try {
-    console.log(req.params, req.body)
-    const sightings = await Sighting.find({_id: req.body._id})
+    console.log(req.params, req.body);
+    const sightings = await Sighting.find({ _id: req.body._id });
     if (sightings.length === 0) {
       res.status(400).json({ message: "sighting not found" });
-      return
+      return;
     }
 
-    const sighting = sightings[0]
-    sighting.title = req.body.title
-    sighting.date = req.body.date
-    sighting.country = req.body.country
-    sighting.state = req.body.state
-    sighting.city = req.body.city
+    const sighting = sightings[0];
+    sighting.title = req.body.title;
+    sighting.date = req.body.date;
+    sighting.country = req.body.country;
+    sighting.state = req.body.state;
+    sighting.city = req.body.city;
 
     sighting.save(function (err) {
-      res.status(201).json({sighting})
-    })
-  } catch(err) {
-    console.log(err)
+      res.status(201).json(sighting);
+    });
+  } catch (err) {
+    console.log(err);
   }
 }
 
-async function deleteSighting(req, res){
+async function deleteSighting(req, res) {
   try {
-    const sighting = await Sighting.find({_id: req.params.sightingID})
-    sighting.deleteOne()
-  } catch(err) {
+    const sighting = await Sighting.findOneAndDelete({
+      _id: req.body._id,
+    });
+    console.log("body", req.body)
+    console.log("SIGHTING TO DELETE", sighting);
+    res.status(201).json( sighting );
+  } catch (err) {
     res.status(400).json({ err });
   }
 }

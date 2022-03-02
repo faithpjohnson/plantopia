@@ -37,6 +37,12 @@ export default function UpdateSightingForm ({ handleUpdateForm, sightingID, hand
     console.log(state)
   }
 
+  function handleDelete (e) {
+    e.preventDefault()
+    handleDeleteSighting(sightingID)
+    console.log(state)
+  }
+
   useEffect(() => {
     getSighting()
   }, [])
@@ -94,7 +100,8 @@ export default function UpdateSightingForm ({ handleUpdateForm, sightingID, hand
                 UPDATE SIGHTING
               </Button>
             </Form>
-            <Button type='submit' className='btn' color='red'>
+            <Button type='submit' className='btn' color='red' onClick={handleDelete}
+>
               DELETE
             </Button>
           </Segment>

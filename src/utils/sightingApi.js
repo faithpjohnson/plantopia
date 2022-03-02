@@ -10,7 +10,7 @@ export function create(postInfoFromTheForm) {
     // multipart/form-data < - is the content type
     body: postInfoFromTheForm, // <- postInfoFromTheForm has to be formData
     headers: {
-      'Authorization': "Bearer " + tokenService.getToken(),
+      Authorization: "Bearer " + tokenService.getToken(),
     },
   }).then((res) => {
     // Valid login if we have a status of 2xx (res.ok)
@@ -24,7 +24,7 @@ export function create(postInfoFromTheForm) {
 export function getAll() {
   return fetch(BASE_URL, {
     headers: {
-		'Authorization': "Bearer " + tokenService.getToken(),
+      Authorization: "Bearer " + tokenService.getToken(),
     },
   }).then((res) => {
     if (res.ok) return res.json();
@@ -35,7 +35,7 @@ export function getAll() {
 export function getByID(sightingID) {
   return fetch(`${BASE_URL}${sightingID}`, {
     headers: {
-		'Authorization': "Bearer " + tokenService.getToken(),
+      Authorization: "Bearer " + tokenService.getToken(),
     },
   }).then((res) => {
     if (res.ok) return res.json();
@@ -48,11 +48,10 @@ export function updateSighting(formInfo, sightingID) {
     method: "POST",
     body: JSON.stringify(formInfo),
     headers: new Headers({
-		'Content-Type': 'application/json',
-		'Authorization': "Bearer " + tokenService.getToken(),
-	}),
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + tokenService.getToken(),
+    }),
   }).then((res) => {
-    // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
     throw new Error(
       "Error submitting the UPDATE Form! Hey Check the Express Terminal"
@@ -60,14 +59,27 @@ export function updateSighting(formInfo, sightingID) {
   });
 }
 
+// query to the backend
+// fetch hits the route
+// route triggers controller
+// controller writes data to the res and server returns it
+
 export function deleteSighting(sightingID) {
+  console.log(sightingID)
   return (
-    fetch(`${BASE_URL}${sightingID}/edit`),
-    {
+    fetch(BASE_URL, {
       method: "DELETE",
+      body: JSON.stringify({
+        "_id": sightingID
+      }), // turns into json string 
       headers: {
-        'Authorization': "Bearer " + tokenService.getToken(),
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + tokenService.getToken(),
       },
-    }
-  );
+    })).then((res) => {
+      if (res.ok) return res.json();
+      throw new Error(
+        "Error submitting the UPDATE Form! Hey Check the Express Terminal"
+      );
+  })
 }

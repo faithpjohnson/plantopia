@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import handleLogout from '../../pages/App/App'
 import { useNavigate } from 'react-router-dom'
 import { Menu, Header, Segment, Image } from 'semantic-ui-react'
 
@@ -12,12 +13,14 @@ export default function NavBar ({ user }) {
     navigate(path)
   }
 
+  
+  
+
   return (
     <Menu>
       <Menu.Item name='sightings' path='/sightings' onClick={handleItemClick}>
         <Header size='huge'>
-          <Image
-          src={"https://i.imgur.com/ZeooAyL.png"}></Image>
+          <Image src={'https://i.imgur.com/ZeooAyL.png'}></Image>
         </Header>
       </Menu.Item>
 
@@ -56,10 +59,18 @@ export default function NavBar ({ user }) {
         >
           Login
         </Menu.Item>
-
       )}
 
-        {/* <Menu.Item
+      <Menu.Item
+        name='logout'
+        path='/login'
+        active={state.activeItem === 'logout'}
+        onClick={handleLogout}
+      >
+        Logout
+      </Menu.Item>
+
+      {/* <Menu.Item
           name='profile'
           path={`/user/${user.username}`}
           active={state.activeItem === 'profile'}

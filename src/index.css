@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
 
-:root {
+/* :root {
   --body-ft: font-family: 'Calistoga', cursive;
-}
+} */
 
 body {
   margin: 0;
@@ -12,6 +12,8 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #95818D; */
+  background-color: #C1ABA6;
 }
 
 code {
@@ -19,3 +21,37 @@ code {
     monospace;
 }
 
+.ui.header {
+  font-family: 'Jost', sans-serif;
+}
+
+.ui.menu .item {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-family: 'Jost', sans-serif;
+}
+
+.ui.primary.button {
+  background-color: #86A397;
+  color: black;
+}
+
+.ui.button {
+  background-color: #86A397;
+  color: black;
+}
+
+.ui.menu {
+  background-color: #F4E9E7;
+}
+
+.ui.header {
+  text-align: center;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+  color: black;
+}

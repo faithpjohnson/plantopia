@@ -27,7 +27,7 @@ A place to share plant sightings with your community!
 
 ### Getting Started:    
 Project Planning: [trello](https://trello.com/b/4UJ8gFeG/plantopia)
-[Launch the app here](https://secure-falls-04384.herokuapp.com/login)
+[Launch the app here](https://plantopiaa.herokuapp.com/login)
 
 -----------------------------------------------------------------------------------------  
 

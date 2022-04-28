@@ -1,6 +1,6 @@
 # 🌿 Plantopia 🌿   
 
-A place to share plant sightings with your community!  
+This app is a place where users can upload photos and locations of plant sightings with their community. Users can view all plant sightings, leave comments, and view the sightings they have added.
 
 ### Screenshots  
 -----------------------------------------------------------------------------------------
@@ -23,11 +23,19 @@ A place to share plant sightings with your community!
 - CSS  
 - Semantic UI  
 
+Project Planning --> [Trello](https://trello.com/b/4UJ8gFeG/plantopia)  
+
 -----------------------------------------------------------------------------------------  
 
-### Getting Started:    
-Project Planning --> [Trello](https://trello.com/b/4UJ8gFeG/plantopia)  
-Try it out --> [Plantopia](https://plantopiaa.herokuapp.com/login)
+### Getting Started:  
+Once you've launched to app, you will be directed to a login/signup page.  
+To demo the app you can use these credentials:  
+Email: test@testing.com  
+Password: Test  
+
+Once logged in, you can upload, view, and comment on sightings.  
+
+Try it out --> [Plantopia](https://plantopiaa.herokuapp.com/login)  
 
 -----------------------------------------------------------------------------------------  
 
